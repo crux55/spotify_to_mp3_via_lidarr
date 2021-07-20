@@ -5,9 +5,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from youtube_search import YoutubeSearch
 
 config = configparser.ConfigParser()
-config.read('ConfigFile.properties')
-
-print(config.get("ExampleSection", "example"))
+config.read('env.properties')
 
 SPOTIFY_CLIENT_ID = config.get("SPOTIPY_CLIENT_ID")
 SPOTIFY_CLIENT_SECRET = config.get("SPOTIPY_CLIENT_SECRET")
