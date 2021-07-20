@@ -9,9 +9,9 @@ from youtube_search import YoutubeSearch
 config = configparser.ConfigParser()
 config.read('env.properties')
 
-SPOTIFY_CLIENT_ID = config.get("SPOTIPY_CLIENT_ID")
-SPOTIFY_CLIENT_SECRET = config.get("SPOTIPY_CLIENT_SECRET")
-ROOT_FOLDER = config.get("ROOT_FOLDER")
+SPOTIFY_CLIENT_ID = config.get("env", "SPOTIPY_CLIENT_ID")
+SPOTIFY_CLIENT_SECRET = config.get("env", "SPOTIPY_CLIENT_SECRET")
+ROOT_FOLDER = config.get("env", "ROOT_FOLDER")
 
 spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id=SPOTIFY_CLIENT_ID, client_secret=SPOTIFY_CLIENT_SECRET))
 
