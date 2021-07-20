@@ -1,4 +1,6 @@
 import configparser
+import os
+
 import spotipy
 import youtube_dl
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -27,7 +29,10 @@ for item in albums['items']:
             results_list = YoutubeSearch(song_search_string, max_results=1).to_dict()
             best_url = "https://www.youtube.com{}".format(results_list[0]['url_suffix'])
             print(best_url)
-            output_loc = ROOT_FOLDER = '%(title)s.%(ext)s'
+            tmp_album_path = ROOT_FOLDER + "/" + item['name']
+            if not os.path.isfile(tmp_album_path):
+                os.mkdir(tmp_album_path)
+            output_loc = tmp_album_path + "/" + '%(title)s.%(ext)s'
             ydl_opts = {
                 'format': 'bestaudio/best',
                 'download_archive': 'downloaded_songs.txt',
