@@ -11,7 +11,7 @@ config.read('env.properties')
 
 SPOTIFY_CLIENT_ID = config.get("env", "SPOTIPY_CLIENT_ID")
 SPOTIFY_CLIENT_SECRET = config.get("env", "SPOTIPY_CLIENT_SECRET")
-ROOT_FOLDER = config.get("env", "ROOT_FOLDER")
+ROOT_FOLDER = config.get("env", "ROOT_PATH")
 
 spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id=SPOTIFY_CLIENT_ID, client_secret=SPOTIFY_CLIENT_SECRET))
 
